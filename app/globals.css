@@ -1,0 +1,334 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --background: #212121;
+}
+
+body {
+  background-color: #212121
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.3rem;
+  padding-right: 1.3rem;
+}
+
+.editor-container {
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+}
+
+.toolbar button,
+.toolbar select {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.toolbar button.active {
+  font-weight: bold;
+}
+
+/* Editor Inner */
+.editor-inner {
+  position: relative;
+  min-height: 200px;
+  padding: 15px;
+  flex-grow: 1;
+  /* Allow content to grow */
+  overflow: auto;
+  /* For scrollable content */
+}
+
+/* Content Editable */
+.content-editable {
+  min-height: 500px;
+  /* Ensure content area has a minimum height */
+  outline: none;
+  /* Remove default focus outline */
+  white-space: pre-wrap;
+  /* Preserve whitespace and wrap text */
+  word-wrap: break-word;
+  /* Break long words */
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* Placeholder */
+.placeholder {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+  /* Make sure it doesn't block clicks */
+}
+
+/* Lexical Theme Classes */
+.editor-paragraph {
+  margin: 0;
+  margin-bottom: 1em;
+  /* Add some spacing between paragraphs */
+}
+
+/* Text Formatting */
+.editor-text-bold {
+  font-weight: bold;
+}
+
+.editor-text-italic {
+  font-style: italic;
+}
+
+.editor-text-underline {
+  text-decoration: underline;
+}
+
+/* Headings */
+.editor-h1 {
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  font-weight: bold;
+}
+
+.editor-h2 {
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  font-weight: bold;
+}
+
+/* Add more heading styles as needed */
+
+/* Lists */
+.editor-ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+.editor-ol {
+  list-style-type: decimal;
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+.editor-listitem {
+  margin-bottom: 0.5em;
+}
+
+/* Font Size & Color Classes */
+.editor-font-size-small {
+  font-size: 0.8em;
+}
+
+.editor-font-size-medium {
+  font-size: 1em;
+  /* Default size */
+}
+
+.editor-font-size-large {
+  font-size: 1.2em;
+}
+
+
+/* Text Alignment (applied to parent element/block) */
+.editor-paragraph[style*="text-align: left"] {
+  text-align: left;
+}
+
+.editor-paragraph[style*="text-align: center"] {
+  text-align: center;
+}
+
+.editor-paragraph[style*="text-align: right"] {
+  text-align: right;
+}
+
+.editor-paragraph[style*="text-align: justify"] {
+  text-align: justify;
+}
+
+/* Comment Section */
+.lb-root {
+  --lb-accent-subtle: #0b1527;
+  --lb-radius: 0px;
+  --lb-dynamic-background: #1b2840;
+}
+
+.lb-comment,
+.lb-thread-comments,
+.lb-composer,
+.lb-comment-reaction {
+  background-color: #181818;
+  color: #fff;
+}
+
+.lb-button {
+  --lb-foreground-moderate: #fff;
+}
+
+.lb-button:where([data-variant='primary']) {
+  background-color: #000;
+  color: #fff;
+  padding: 8px;
+  border-radius: 100%;
+}
+
+.lb-button:where([data-variant='default']:not( :is( :enabled:hover,
+      :enabled:focus-visible,
+      [aria-expanded='true'],
+      [aria-selected='true']))) {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.lb-button:where( :enabled:hover,
+  :enabled:focus-visible,
+  [aria-expanded='true'],
+  [aria-selected='true']) {
+  --lb-button-background: #161e30;
+
+  color: #b4c6ee;
+}
+
+.lb-inbox-notification-list-item:where(:not(:last-of-type)) {
+  border-bottom: none;
+}
+
+.lb-comment-body,
+.lb-dropdown-item,
+.lb-dropdown-item-icon,
+.lb-composer-editor {
+  color: #fff;
+}
+
+.lb-composer-action {
+  padding: 8px;
+}
+
+.lb-comment-content {
+  background: #111111;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+
+.lb-lexical-mention-suggestion-user,
+.lb-composer-suggestions-list-item,
+.lb-inbox-notification-date,
+.lb-comment-author,
+.lb-emoji-picker-search-icon,
+.lb-emoji-picker-category-header-title,
+.lb-emoji-picker-search::placeholder {
+  color: #fff;
+}
+
+.data-liveblocks-portal {
+  color: #fff !important;
+}
+
+/* color for commented letters */
+.lb-root:where(:not(.lb-root .lb-root)) {
+  --lb-dynamic-background: #1b2840;
+  color: #fff;
+  background-color: #413F42;
+}
+
+.lb-composer-editor :where([data-placeholder]) {
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.lb-lexical-floating-threads-thread:where([data-resolved]) {
+  opacity: 40%;
+}
+
+.lb-elevation {
+  background: #181818;
+}
+
+.lb-avatar img,
+.lb-comment__avatar img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 9999px !important;
+  object-fit: cover;
+}
+
+.lb-comment-actions {
+  padding-top: 0.5rem;
+
+}
+
+.lb-comment-date {
+  margin-left: 9px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.lb-comment-details {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.lb-avatar-fallback {
+  display: none;
+}
+
+.lb-comment-header {
+  display: block;
+}
+
+.lb-composer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lb-composer-editor {
+  outline: none;
+  border: none;
+  margin-top: 4px;
+}
+
+.lb-dropdown-item {
+  display: flex;
+  gap: 2px;
+
+}
+
+.lb-dropdown {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+}
+
+.cl-avatarImage {
+
+}
+.cl-logoBox {
+  height: 64px;
+}
+
+.cl-avatarBox {
+  width: 32px;
+  height: 32px;
+}
