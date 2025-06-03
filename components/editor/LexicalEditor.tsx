@@ -20,6 +20,7 @@ import ToolbarPlugin from "./ToolBarPlugin";
 import FloatingToolbar from "./plugins/FloatingToolbar";
 import { useThreads } from "@liveblocks/react/suspense";
 import { Thread } from "@liveblocks/react-ui";
+import Comments from "../Comments";
 // Define your Lexical theme (for basic styling)
 const editorTheme = {
   // You can define various styles here for different Lexical nodes
@@ -54,12 +55,11 @@ export function LexicalEditorComponent({
   roomId: string;
   currentUserType: UserType;
 }) {
- const { threads } = useThreads();
+  const { threads } = useThreads();
 
   const [editorState, setEditorState] = useState<string>();
 
   const status = useEditorStatus();
- 
 
   const initialConfig = liveblocksConfig({
     namespace: "MyLexicalEditor",
@@ -124,8 +124,12 @@ export function LexicalEditorComponent({
           )}
           <LiveblocksPlugin>
             {/* TODO: Comments */}
-            <FloatingComposer className="w-[300px] p-4" />
-            <FloatingThreads threads={threads} className=" mt-4 space-y-3 p-4 rounded-md border border-white/50"/>
+            <FloatingComposer className="w-[300px]" />
+            <FloatingThreads
+              threads={threads}
+              className=" mt-4 space-y-3 p-4 rounded-md border border-white/50"
+            />
+            <Comments />
           </LiveblocksPlugin>
         </div>
       </div>

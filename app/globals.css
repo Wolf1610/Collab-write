@@ -167,9 +167,9 @@ body {
 
 /* Comment Section */
 .lb-root {
-  --lb-accent-subtle: #0b1527;
+  /* --lb-accent-subtle: #0b1527; */
   --lb-radius: 0px;
-  --lb-dynamic-background: #1b2840;
+  /* --lb-dynamic-background: #1b2840; */
 }
 
 .lb-comment,
@@ -202,9 +202,9 @@ body {
   :enabled:focus-visible,
   [aria-expanded='true'],
   [aria-selected='true']) {
-  --lb-button-background: #161e30;
+  --lb-button-background: rgba(255, 255, 255, 0.6);
 
-  color: #b4c6ee;
+  color: #fff;
 }
 
 .lb-inbox-notification-list-item:where(:not(:last-of-type)) {
@@ -246,9 +246,9 @@ body {
 
 /* color for commented letters */
 .lb-root:where(:not(.lb-root .lb-root)) {
-  --lb-dynamic-background: #1b2840;
+  --lb-dynamic-background: #413F42;
   color: #fff;
-  background-color: #413F42;
+  /* background-color: #413F42; */
 }
 
 .lb-composer-editor :where([data-placeholder]) {
@@ -331,4 +331,21 @@ body {
 .cl-avatarBox {
   width: 32px;
   height: 32px;
+}
+
+.lb-thread {
+  background-color: #181818;
+}
+.lb-thread-comment {
+  margin-top: 0.75rem;
+}
+.lb-composer-editor-container {
+  padding: 0.75rem;
+}
+.lb-composer-editor {
+  display: inline;
+}
+
+.lb-lexical-thread-mark {
+  background-color: rgba(255, 255, 255, 0.1);
 }
