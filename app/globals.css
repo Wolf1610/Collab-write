@@ -349,3 +349,41 @@ body {
 .lb-lexical-thread-mark {
   background-color: rgba(255, 255, 255, 0.1);
 }
+.lb-emoji-picker {
+  height: 200px;
+  width: 200px;
+}
+.lb-emoji-picker-content {
+  height: 200px;
+  width: 200px;
+  background-color: #111111;
+}
+.lb-comment-reaction-count {
+  display: none;
+}
+.lb-icon {
+  margin-bottom: 3px;
+}
+.lb-comment-reactions {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.lb-emoji-picker-search-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px;
+  cursor: pointer;
+}
+.lb-emoji-picker-search-container input {
+  width: 160px;
+  border: none;
+  outline: none;
+}
+.lb-emoji-picker-content {
+  padding: 8px;
+}
+.lb-emoji-picker-footer {
+  background-color: #111111;
+  padding: 7px;
+}
