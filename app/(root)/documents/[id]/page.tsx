@@ -4,13 +4,8 @@ import { getClerkUsers } from "@/lib/actions/user.actions";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-type SearchParamProps = {
-  params: { id: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-const Document = async ({ params }: SearchParamProps) => {
-  const { id } = params;
+const Document = async ({ params: { id } }: SearchParamProps) => {
+  // const { id } = await params;
 
   const clerkUser = await currentUser();
   if (!clerkUser) redirect("/signin");
@@ -22,9 +17,11 @@ const Document = async ({ params }: SearchParamProps) => {
 
   if (!room) redirect("/");
 
-  const userIds = Object.keys(room.usersAccesses);
+  // TODO: Access the permission of the user to access the document
+  const userIds = Object.keys(room.usersAccesses); // Obj.key means -> we will get only ids
   const users = await getClerkUsers({ userIds });
 
+  // extract user data
   const userData = users.map((user: User) => ({
     ...user,
     userType: room.usersAccesses[user.email]?.includes("room:write")
@@ -32,6 +29,7 @@ const Document = async ({ params }: SearchParamProps) => {
       : "viewer",
   }));
 
+  // for current users
   const currentUserType = room.usersAccesses[
     clerkUser.emailAddresses[0].emailAddress
   ]?.includes("room:write")
@@ -40,10 +38,10 @@ const Document = async ({ params }: SearchParamProps) => {
 
   return (
     <main className="text-white">
-      <CollaborativeRoom
-        roomId={id}
-        roomMetadata={room.metadata}
-        users={userData}
+      <CollaborativeRoom 
+        roomId={id} 
+        roomMetadata={room.metadata} 
+        users={userData}  
         currentUserType={currentUserType}
       />
     </main>
