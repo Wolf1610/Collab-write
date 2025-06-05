@@ -213,11 +213,14 @@ body {
 
 .lb-comment-body,
 .lb-dropdown-item,
-.lb-dropdown-item-icon,
-.lb-composer-editor {
+.lb-dropdown-item-icon {
   color: #fff;
 }
 
+.lb-composer-editor {
+  color: #fff;
+  width: 100px;
+}
 .lb-composer-action {
   padding: 8px;
 }
@@ -386,4 +389,11 @@ body {
 .lb-emoji-picker-footer {
   background-color: #111111;
   padding: 7px;
+}
+.lb-emoji-picker-row {
+  gap: 0.2rem;
+}
+
+.lb-lexical-floating-threads {
+  width: 200px;
 }

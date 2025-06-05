@@ -6,7 +6,7 @@ const ActiveCollaboraor = () => {
   const collaborators = others.map((other) => other.info);
 
   return (
-    <ul>
+    <ul className="gap-1 flex">
       {collaborators.map(({ id, avatar, name, color }) => (
         <li key={id}>
           <Image 

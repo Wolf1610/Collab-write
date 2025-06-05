@@ -66,26 +66,29 @@ const ShareModal = ({
         <Label htmlFor="email" className="mt-6 text-md text-white">
           Email address
         </Label>
-        <div className="flex justify-between items-center gap-1">
-          <div className="flex justify-between rouned-sm bg-[#111111] p-2">
+        <div className="md:flex md:justify-between  items-center">
+          <div className="flex justify-start rouned-sm mb-2">
             <Input
               id="email"
               placeholder="Enter email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border-none outline-none w-[270px]"
+              className="border-none outline-none w-[304px] p-2 bg-[#111111] md:w-[470px]"
             />
             {/* Select user is editor or viewer */}
-            <UserTypeSelector userType={userType} setUserType={setUserType} />
+            
           </div>
-          <Button
-            type="submit"
-            onClick={shareDocumentHandler}
-            className="flex bg-white text-black font-semibold py-3"
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Invite"}
-          </Button>
+          <div className="flex gap-3 justify-center">
+            <UserTypeSelector userType={userType} setUserType={setUserType} />
+            <Button
+              type="submit"
+              onClick={shareDocumentHandler}
+              className="flex bg-white text-black font-semibold py-3"
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Invite"}
+            </Button>
+          </div>
         </div>
         <div className="my-2 space-y-2">
           <ul className="flex flex-col">

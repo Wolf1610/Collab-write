@@ -41,7 +41,7 @@ export default async function Home() {
             <h3 className=" font-semibold text-md text-white">All Documents</h3>
           </div>
           <div>
-            <ul>
+            <ul className="">
               {roomDocuments.data.map(({ id, metadata, createdAt }: any) => (
                 <li key={id} className="mb-4 bg-[#191919] flex justify-between items-center">
                   <Link
